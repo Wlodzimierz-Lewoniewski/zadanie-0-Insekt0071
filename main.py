@@ -26,17 +26,28 @@ def process_documents(n, documents, m, queries):
     return result
 
 def main():
-    with open('input.txt', 'r') as file:
-        n = int(file.readline().strip())
-        documents = [file.readline().strip() for _ in range(n)]
-        m = int(file.readline().strip())
-        queries = [file.readline().strip() for _ in range(m)]
-
+    # number of documents
+    n = int(input("Enter the number of documents: ").strip())
+    
+    # documents
+    documents = []
+    for i in range(n):
+        document_content = input(f"Enter content of document {i + 1}: ").strip()
+        documents.append(document_content)
+    
+    # number of queries
+    m = int(input("Enter the number of queries: ").strip())
+    
+    # queries
+    queries = []
+    for i in range(m):
+        query = input(f"Enter query {i + 1}: ").strip().lower()
+        queries.append(query)
+    
     results = process_documents(n, documents, m, queries)
-
-    with open('output.txt', 'w') as output_file:
-        for res in results:
-            output_file.write(f"{res}\n")
+    
+    for result in results:
+        print(result)
 
 if __name__ == "__main__":
     main()
