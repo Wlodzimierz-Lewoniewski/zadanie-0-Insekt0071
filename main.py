@@ -25,17 +25,18 @@ def process_documents(n, documents, m, queries):
             result.append([]) 
     return result
 
-with open('input.txt', 'r') as file:
-    n = int(file.readline().strip())
-    
-    documents = [file.readline().strip() for _ in range(n)]
-    m = int(file.readline().strip())
-    
-    queries = [file.readline().strip() for _ in range(m)]
+def main():
+    with open('input.txt', 'r') as file:
+        n = int(file.readline().strip())
+        documents = [file.readline().strip() for _ in range(n)]
+        m = int(file.readline().strip())
+        queries = [file.readline().strip() for _ in range(m)]
 
-results = process_documents(n, documents, m, queries)
+    results = process_documents(n, documents, m, queries)
 
-#zapis na koniec
-with open('output.txt', 'w') as output_file:
-    for res in results:
-        output_file.write(f"{res}\n")
+    with open('output.txt', 'w') as output_file:
+        for res in results:
+            output_file.write(f"{res}\n")
+
+if __name__ == "__main__":
+    main()
